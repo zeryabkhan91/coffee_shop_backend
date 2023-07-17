@@ -5,8 +5,8 @@
   "frontendUrl": "http://localhost:3001",
   "debug": true,
   "intervals": {
-    "orderProcessing": "5000",
-    "orderCompletion": "10000"
+    "orderProcessing": "30000",
+    "orderCompletion": "60000"
   },
   "database": {
     "client": "mongodb",

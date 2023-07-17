@@ -1,0 +1,12 @@
+{
+  "host": "HOST",
+  "port": "PORT",
+  "intervals": {
+    "orderProcessing": "",
+    "orderCompletion": ""
+  },
+  "database": {
+   "client": "DB_CLIENT",
+   "connection": "DB_CONNECTION_STRING"
+  }
+ }

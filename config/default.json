@@ -1,0 +1,15 @@
+{
+  "host": "localhost",
+  "port": 3000,
+  "secretKey": "secret",
+  "frontendUrl": "http://localhost:3001",
+  "debug": true,
+  "intervals": {
+    "orderProcessing": "5000",
+    "orderCompletion": "10000"
+  },
+  "database": {
+    "client": "mongodb",
+    "connection": "mongodb://localhost:27017/bar"
+  }
+}

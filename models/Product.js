@@ -16,6 +16,12 @@ const productSchema = mongoose.Schema({
   discount_type: {
     type: String,
   },
+  discount_max_amount: {
+    type: Number,
+  },
+  tax_rate: {
+    type: Number,
+  },
   userId: {
     type: String,
   },

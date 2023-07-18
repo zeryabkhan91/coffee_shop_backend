@@ -23,6 +23,9 @@ const orderItemSchema = mongoose.Schema({
   discountedPrice: {
     type: String,
   },
+  tax: {
+    type: Number,
+  },
   userId: {
     type: String,
   },

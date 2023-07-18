@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Coke",
+    "price": 50,
+    "discount": 0,
+    "tax_rate": 0,
+    "discount_max_amount": 0,
+    "discount_type": "percentage"
+  },
+  {
+    "name": "Italian Pizza",
+    "price": 500,
+    "discount": 10,
+    "tax_rate": 0,
+    "discount_max_amount": 0,
+    "discount_type": "percentage"
+  },
+  {
+    "name": "Arabian Shawarma",
+    "price": 150,
+    "discount": 0,
+    "tax_rate": 10,
+    "discount_max_amount": 0,
+    "discount_type": "percentage"
+  },
+  {
+    "name": "Coffee",
+    "price": 50,
+    "discount": 5,
+    "tax_rate": 0,
+    "discount_max_amount": 0,
+    "discount_type": "amount"
+  }
+]

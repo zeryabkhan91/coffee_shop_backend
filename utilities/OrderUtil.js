@@ -47,7 +47,7 @@ class OrderUtil {
       const quantity = product.quantity;
 
       if (discountType === "percentage") {
-        discountedPrice = price - (price * discount) / 100;
+        discountedPrice = price - (price * discount || 0) / 100;
         discountedPrice = discountedPrice * quantity;
       } else if (discountType === "amount") {
         discountedPrice = price - discount;
@@ -67,13 +67,13 @@ class OrderUtil {
     if (!discount) return price;
 
     if (discountType === Discount.TYPE.PERCENTAGE) {
-      discountedPrice = price - (price * discount) / 100;
+      discountedPrice = price - (price * discount || 0) / 100;
     } else if (discountType === Discount.TYPE.AMOUNT) {
       discountedPrice = price - discount;
     }
 
     const discountedValue =
-      deal.discount_max_amount && discountedPrice > deal.discount_max_amount
+      deal.discount_max_amount && (price - discountedPrice) > deal.discount_max_amount
         ? deal.discount_max_amount
         : discountedPrice;
 
@@ -92,7 +92,7 @@ class OrderUtil {
     if (!discount) return price;
 
     if (discountType === Discount.TYPE.PERCENTAGE) {
-      discountedPrice = price - (price * discount) / 100;
+      discountedPrice = price - (price * discount || 0) / 100;
     } else if (discountType === Discount.TYPE.AMOUNT) {
       discountedPrice = price - discount;
     }

@@ -80,6 +80,10 @@ class DealHandler {
     }).lean();
   }
 
+  static insertManyDeals(deals) {
+    return Deal.insertMany(deals);
+  }
+
   static findExistingDeal(item_id, item_discount_id) {
     return Deal.find({ item_id, item_discount_id })
   }

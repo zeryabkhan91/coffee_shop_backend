@@ -21,14 +21,17 @@ class OrderService {
         usedItems
       );
 
+      const productTax = product.price * ((product.tax_rate || 0) / 100);
+
       const orderItem = {
         orderId: newOrder._id,
         productId: product._id,
         productName: product.name,
         quantity: product.quantity,
         price: product.price,
+        tax: productTax,
         discount: product.price * product.quantity - discountedPrice,
-        discountedPrice: discountedPrice,
+        discountedPrice: discountedPrice + productTax,
       };
       orderItems.push(orderItem);
     }

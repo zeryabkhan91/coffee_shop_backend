@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "dfb89df4-654a-4d40-97ba-8c067d2ce22e",
+		"name": "Coffe",
+		"description": "Postman Collection for Coffe Shop Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18220564",
+		"_collection_link": "https://www.postman.com/speeding-capsule-639707/workspace/local/collection/18220564-dfb89df4-654a-4d40-97ba-8c067d2ce22e?action=share&creator=18220564&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "GetProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Coke\",\n    \"price\": 20,\n    \"category\": \"12312\",\n    \"discount\": 20,\n    \"discount_max_amount\": 0,\n    \"tax_rate\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/products/64b2915de34aa1b4e373132c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"64b2915de34aa1b4e373132c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deal",
+			"item": [
+				{
+					"name": "Get Deal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/deal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"deal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Deal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/deal/64b291ba770be3ebe5d2bdb3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"deal",
+								"64b291ba770be3ebe5d2bdb3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Deal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"item_discount_id\": \"64b2915de34aa1b4e373132c\",\n    \"item_id\": \"64b29162e34aa1b4e373132e\",\n    \"discount\": 10,\n    \"discount_max_amount\": 15\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/deal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"deal"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"orders\": [\n    {\n      \"_id\": \"64b542053700d76d45d199cf\",\n      \"name\": \"Coke\",\n      \"price\": 50,\n      \"discount\": 0,\n      \"discount_type\": \"percentage\",\n      \"userId\": \"06949484-0b00-45ee-8a3d-6954a0491641\",\n      \"__v\": 0,\n      \"quantity\": 3\n    },\n    {\n      \"_id\": \"64b5495f7c9f475c7f153b1d\",\n      \"name\": \"Biryani\",\n      \"price\": 400,\n      \"discount\": 20,\n      \"discount_type\": \"percentage\",\n      \"userId\": \"06949484-0b00-45ee-8a3d-6954a0491641\",\n      \"__v\": 0,\n      \"quantity\": 4\n    },\n    {\n      \"_id\": \"64b5496e7c9f475c7f153b27\",\n      \"name\": \"Burger\",\n      \"price\": 600,\n      \"discount\": 0,\n      \"discount_type\": \"percentage\",\n      \"userId\": \"06949484-0b00-45ee-8a3d-6954a0491641\",\n      \"__v\": 0,\n      \"quantity\": 2\n    }\n  ],\n  \"userId\": \"06949484-0b00-45ee-8a3d-6954a0491641\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

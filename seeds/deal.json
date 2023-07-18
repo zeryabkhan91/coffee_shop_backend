@@ -1,0 +1,12 @@
+[
+  {
+    "discount": 10,
+    "discount_type": "percentage",
+    "discount_max_amount": 15
+  },
+  {
+    "discount": 10,
+    "discount_type": "amount",
+    "discount_max_amount": 0
+  }
+]

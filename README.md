@@ -8,6 +8,11 @@ Before running the project, make sure you have the following software installed 
 
 - Node.js v16: You can use NVM (Node Version Manager) to install Node.js v16.
 
+- Mongodb: Check if mongo database is install on your system. If not install from this link as per your operating system.
+```bash
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+```
+
 ## Installation
 
 ### Installing Node.js v16 using NVM
@@ -52,6 +57,17 @@ Before running the project, make sure you have the following software installed 
 
    This command will start the development server and provide you with a local URL where you can access the application in your browser.
 
+
+## Seed Daata
+
+To add seed data for the project, use the following command:
+
+```bash
+npm run seed_data
+```
+
+This command will execute a script and seed data in the database in the terminal.
+
 ## Running Tests
 
 To run tests for the project, use the following command:
@@ -61,3 +77,8 @@ npm run test
 ```
 
 This command will execute the tests and display the test results in the terminal.
+
+
+## Postman Collection
+Postman collection is provide for Coffee Shop Backend
+[Postman Collection](Coffe.postman_collection.json)

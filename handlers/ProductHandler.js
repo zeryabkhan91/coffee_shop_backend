@@ -16,6 +16,10 @@ class ProductHandler {
     return Product.find(option)
   }
 
+  static insertManyProducts(products) {
+    return Product.insertMany(products)
+  }
+
   static getProducts({ perPage = 10, currentPage = 0 }) {
     return Product.paginate({}, { page: currentPage, limit: perPage });
   }

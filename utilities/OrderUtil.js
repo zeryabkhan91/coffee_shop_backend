@@ -33,26 +33,16 @@ class OrderUtil {
       const parentQuantity = parentProduct.quantity;
       const childQuantity = product.quantity;
       const discountValue = dealDiscount.discountedValue;
-      const price = product.price;
 
       const discountedQuantity = Math.min(parentQuantity, childQuantity);
-      const undiscountedQuantity = childQuantity - discountedQuantity;
 
       discountedPrice =
-        discountedQuantity * discountValue + undiscountedQuantity * price;
+        discountedQuantity * discountValue;
     } else {
-      const discountType = product.discount_type;
-      const discount = product.discount;
-      const price = product.price;
+      const calculatedProduct = this.calcualteSingleProductDiscount(product);
       const quantity = product.quantity;
 
-      if (discountType === "percentage") {
-        discountedPrice = price - (price * discount || 0) / 100;
-        discountedPrice = discountedPrice * quantity;
-      } else if (discountType === "amount") {
-        discountedPrice = price - discount;
-        discountedPrice = discountedPrice * quantity;
-      }
+      discountedPrice = calculatedProduct.discountedPrice * quantity;
     }
 
     return discountedPrice;
@@ -73,9 +63,10 @@ class OrderUtil {
     }
 
     const discountedValue =
-      deal.discount_max_amount && (price - discountedPrice) > deal.discount_max_amount
+      deal.discount_max_amount &&
+      price - discountedPrice > deal.discount_max_amount
         ? deal.discount_max_amount
-        : discountedPrice;
+        : price - discountedPrice;
 
     return {
       ...deal,
@@ -89,7 +80,7 @@ class OrderUtil {
     const price = product.price;
     let discountedPrice = 0;
 
-    if (!discount) return price;
+    if (!discount) return { ...product, discountedPrice: 0 };
 
     if (discountType === Discount.TYPE.PERCENTAGE) {
       discountedPrice = price - (price * discount || 0) / 100;
@@ -97,7 +88,13 @@ class OrderUtil {
       discountedPrice = price - discount;
     }
 
-    return { ...product, discountedPrice };
+    const discountedValue =
+      product.discount_max_amount &&
+      price - discountedPrice > product.discount_max_amount
+        ? product.discount_max_amount
+        : (price - discountedPrice);
+
+    return { ...product, discountedPrice: discountedValue };
   }
 
   static findMinimalDeal(product, deals, usedProducts = []) {
@@ -119,7 +116,7 @@ class OrderUtil {
       .reduce((a, b) => (a.discountedValue > b.discountedValue ? a : b), 0);
 
     return productDiscount.discountedPrice &&
-      productDiscount.discountedPrice > minDealDiscount.discountedValue
+      (productDiscount.discountedPrice || 0) < minDealDiscount.discountedValue
       ? null
       : minDealDiscount;
   }

@@ -51,7 +51,7 @@ describe("OrderUtil", () => {
         product
       );
 
-      expect(singleDealDiscount.discountedValue).toEqual(80);
+      expect(singleDealDiscount.discountedValue).toEqual(20);
     });
 
     test("should calculate single deal discount based on amount", () => {
@@ -68,7 +68,7 @@ describe("OrderUtil", () => {
         product
       );
 
-      expect(singleDealDiscount.discountedValue).toEqual(40);
+      expect(singleDealDiscount.discountedValue).toEqual(10);
     });
 
   });
@@ -85,7 +85,7 @@ describe("OrderUtil", () => {
         product
       );
 
-      expect(singleProductDiscount.discountedPrice).toEqual(80);
+      expect(singleProductDiscount.discountedPrice).toEqual(20);
     });
 
     test("should calculate single product discount based on amount", () => {
@@ -99,7 +99,7 @@ describe("OrderUtil", () => {
         product
       );
 
-      expect(singleProductDiscount.discountedPrice).toEqual(40);
+      expect(singleProductDiscount.discountedPrice).toEqual(10);
     });
 
   });

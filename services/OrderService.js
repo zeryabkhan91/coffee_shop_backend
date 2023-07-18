@@ -23,6 +23,7 @@ class OrderService {
 
       const productTax = product.price * ((product.tax_rate || 0) / 100);
 
+
       const orderItem = {
         orderId: newOrder._id,
         productId: product._id,
@@ -30,8 +31,8 @@ class OrderService {
         quantity: product.quantity,
         price: product.price,
         tax: productTax,
-        discount: product.price * product.quantity - discountedPrice,
-        discountedPrice: discountedPrice + productTax,
+        discount: discountedPrice,
+        discountedPrice: (product.price * product.quantity) - discountedPrice + productTax,
       };
       orderItems.push(orderItem);
     }
